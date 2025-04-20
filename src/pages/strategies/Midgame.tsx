@@ -4,7 +4,7 @@ import ChessHeader from "@/components/ChessHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, CheckCircle, Lightbulb, Zap } from "lucide-react";
-import ChessBoard from "@/components/ChessBoard";
+import { ChessBoard } from "@/components/ChessBoard";
 
 const Midgame: React.FC = () => {
   return (

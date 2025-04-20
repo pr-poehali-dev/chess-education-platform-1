@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import ChessHeader from "@/components/ChessHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Crown, Target } from "lucide-react";
-import ChessBoard from "@/components/ChessBoard";
+import { ArrowLeft, CheckCircle, Crown, Target } from "lucide-react";
+import { ChessBoard } from "@/components/ChessBoard";
 
 const Endgame: React.FC = () => {
   return (
@@ -18,13 +18,13 @@ const Endgame: React.FC = () => {
         </Link>
         
         <div className="flex flex-col items-center mb-8">
-          <h1 className="text-4xl font-bold text-primary mb-4">Эндшпиль: завершение партии</h1>
+          <h1 className="text-4xl font-bold text-primary mb-4">Эндшпиль: окончание партии</h1>
           <p className="text-lg text-center max-w-2xl mb-8">
-            Изучи важные принципы завершающей стадии шахматной партии
+            Научись завершать шахматную партию и доводить преимущество до победы!
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 mb-12">
+        <div className="grid gap-8 lg:grid-cols-2 mb-12">
           <Card className="p-6">
             <CardHeader className="p-0 mb-4">
               <div className="flex items-center">
@@ -33,18 +33,21 @@ const Endgame: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent className="p-0">
-              <p className="mb-4">В эндшпиле король становится активной фигурой:</p>
-              <ul className="space-y-3 mb-4">
-                <li>Выводи короля в центр доски</li>
-                <li>Используй короля для атаки пешек противника</li>
-                <li>Защищай свои пешки королём</li>
-              </ul>
-              <div className="p-3 bg-primary/10 rounded-lg mb-4">
-                <p className="font-medium">Правило квадрата:</p>
-                <p>Если король находится внутри воображаемого квадрата проходной пешки — он может её догнать.</p>
-              </div>
-              <div className="h-[200px]">
-                <ChessBoard position="8/8/8/8/3k4/8/5P2/5K2" />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <p className="mb-4">В эндшпиле король становится боевой фигурой:</p>
+                  <ul className="space-y-2 list-disc ml-5">
+                    <li>Выводи короля в центр</li>
+                    <li>Используй короля для поддержки проходных пешек</li>
+                    <li>Атакуй пешки противника королем</li>
+                  </ul>
+                  <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+                    <p>Правило: В эндшпиле активный король - ключ к победе!</p>
+                  </div>
+                </div>
+                <div className="h-[200px]">
+                  <ChessBoard position="8/8/8/3k4/8/8/3K4/8" />
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -53,31 +56,48 @@ const Endgame: React.FC = () => {
             <CardHeader className="p-0 mb-4">
               <div className="flex items-center">
                 <Target className="h-6 w-6 text-primary mr-2" />
-                <CardTitle className="text-2xl">Пешечные эндшпили</CardTitle>
+                <CardTitle className="text-2xl">Проходные пешки</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="p-0">
-              <p className="mb-4">Ключевые концепции пешечных окончаний:</p>
-              <ul className="space-y-3 mb-4">
-                <li>Создавай проходные пешки</li>
-                <li>Помни про оппозицию королей</li>
-                <li>Защищай пешки другими пешками</li>
-                <li>Используй отдалённые проходные пешки</li>
-              </ul>
-              <div className="p-3 bg-primary/10 rounded-lg mb-4">
-                <p className="font-medium">Важно знать:</p>
-                <p>Пешки должны продвигаться вместе, поддерживая друг друга.</p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <p className="mb-4">Пешка, которой ничто не мешает дойти до последней горизонтали:</p>
+                  <ul className="space-y-2 list-disc ml-5">
+                    <li>Создавай проходные пешки</li>
+                    <li>Защищай свои проходные пешки</li>
+                    <li>Блокируй проходные пешки противника</li>
+                    <li>Используй "правило квадрата"</li>
+                  </ul>
+                </div>
+                <div className="h-[200px]">
+                  <ChessBoard position="8/8/8/1P6/8/8/8/k6K" />
+                </div>
               </div>
-              <div className="h-[200px]">
-                <ChessBoard position="8/5k2/8/8/3P1P2/8/8/3K4" />
+              <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+                <p>Запомни: Проходная пешка должна двигаться вперёд!</p>
               </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="flex justify-center">
+        <div className="bg-primary/10 p-6 rounded-xl text-center max-w-2xl mx-auto mb-8">
+          <h2 className="text-2xl font-bold mb-3">Базовые окончания</h2>
+          <p className="mb-4">Научись матовать одинокого короля разными фигурами:</p>
+          <ul className="text-left list-disc ml-8 mb-4">
+            <li>Ферзём и королём</li>
+            <li>Ладьёй и королём</li>
+            <li>Двумя слонами и королём</li>
+          </ul>
+          <p>Эти навыки - основа шахматного мастерства!</p>
+        </div>
+
+        <div className="flex justify-center gap-4 flex-wrap">
           <Button variant="outline" asChild>
             <Link to="/strategies/midgame">Предыдущий урок</Link>
+          </Button>
+          <Button asChild>
+            <Link to="/lessons">Вернуться к урокам</Link>
           </Button>
         </div>
       </main>
